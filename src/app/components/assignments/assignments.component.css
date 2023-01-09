@@ -1,0 +1,67 @@
+table {
+  border: 5px solid rgb(71, 163, 244);
+  border-collapse: collapse;
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+	transition: color 0.5s, background-color 0.5s;
+  display: flex;
+}
+
+table:hover{
+  background-color: rgb(71, 163, 244);
+
+}
+
+tr,td{
+
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.haut{
+
+  text-align: center;
+  align-items: baseline;
+}
+
+input{
+
+  margin-left: 2rem;
+
+}
+
+
+.rendu {
+  color:green;
+}
+.nonRendu {
+  color:red;
+}
+
+*{
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+h2{
+  margin-top: 4rem;
+  text-align: center;
+  color: blueviolet;
+
+}
+
+button{
+
+  margin-left: 1rem;
+}
+
+mat-list{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 3rem;
+
+
+}
+
+

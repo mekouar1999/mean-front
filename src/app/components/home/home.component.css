@@ -1,0 +1,39 @@
+h2{
+  text-align: center;
+  color: blueviolet;
+
+}
+
+h5{
+  color: blueviolet;
+
+}
+
+li,a{
+  text-decoration: none;
+}
+
+ul{
+
+  list-style-type: none;
+
+}
+
+img{
+
+  width: 200px;
+  height: 350px;
+  border-radius: 100%;
+
+}
+
+.image{
+  display: flex;
+  flex-direction: column;
+}
+
+.presentation{
+
+  display: flex;
+
+}

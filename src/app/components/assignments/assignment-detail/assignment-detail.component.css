@@ -1,0 +1,35 @@
+#bottom {
+  display:flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+h2{
+  margin-top: 4rem;
+  text-align: center;
+  color: blueviolet;
+
+}
+
+
+button{
+
+  padding: 2rem;
+
+}
+
+
+mat-card-subtitle{
+
+  text-align: center;
+  font-size: 30px;
+}
+
+
+mat-card-title{
+  text-align: center;
+  font-size: 30px;
+
+}
+
+

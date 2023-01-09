@@ -1,0 +1,66 @@
+
+    <div class="all" >
+
+
+      <ul class="navbar-nav me-auto">
+
+        <li ><a class="nav-link "
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact:true}"
+
+          [routerLink]="['/']" ><strong>HOME</strong>
+          </a>
+        </li>
+
+      </ul>
+
+
+     <ul class="navbar-nav me-auto"
+     >
+
+
+        <li ><a class="nav-link "
+          *ngIf="!authService.getAuthStatus()"
+
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact:true}"
+
+          [routerLink]="['/login']" ><strong>LOGIN</strong>
+          </a>
+        </li>
+
+  <li ><a class="nav-link "
+    *ngIf="!authService.getAuthStatus()"
+
+
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact:true}"
+
+          [routerLink]="['/register']" ><strong>REGISTER</strong>
+          </a>
+        </li>
+
+
+        <li ><a class="nav-link "
+
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact:true}"
+
+          [routerLink]="['/assignments']" ><strong>ASSIGNEMENT DASHBOARD</strong>
+          </a>
+        </li>
+
+        <li ><a class="nav-link "
+          *ngIf="authService.getAuthStatus()"
+          [routerLinkActive]="['active']"
+
+          (click)="onLogoutClick()"
+
+           >Logout
+          </a>
+        </li>
+
+
+      </ul>
+    </div>
+

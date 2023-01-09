@@ -1,0 +1,26 @@
+<h2 class="page-header" ><strong>Page de connection</strong></h2>
+
+<br>
+
+<h6 class="page-header">Si vous possédez un compte, veuillez entrer vos identifants afin de vous connecter</h6>
+
+
+
+<form class="form-signin" (submit)="onLoginSubmit()">
+        <div class="form-group">
+          <label for="Username"><strong>Identifiant</strong></label>
+          <input [(ngModel)]="username" name="username" type="text" class="form-control" placeholder="Enter votre identifiant">
+        </div>
+        <div class="form-group">
+        <label for="Password"><strong>Mot de passe</strong></label>
+        <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder=" Entrer votre mot de passe">
+        </div>
+        <div class="checkbox">
+          <label>
+          </label>
+        </div>
+        <br>
+        <input class="btn btn-lg btn-primary" type="submit" value="Login">
+</form>
+
+<br><br>

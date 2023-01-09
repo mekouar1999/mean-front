@@ -1,0 +1,37 @@
+
+<h2>Modification / Supression du devoir</h2>
+
+<br><br><br><br>
+
+<mat-card *ngIf="assignmentTransmis">
+
+  <br>
+
+  <mat-card-title><strong>Nom de l'eleve :</strong> {{assignmentTransmis.nom}}</mat-card-title>
+
+  <br><br><br><br>
+
+  <mat-card-subtitle><strong>Date de rendu : </strong>{{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
+
+  <br><br><br>
+
+  <div id="bottom">
+    <mat-checkbox *ngIf="!assignmentTransmis.rendu" [checked]="assignmentTransmis.rendu" (click)="onAssignmentRendu()">
+      Devoir rendu
+    </mat-checkbox>
+
+
+    <nav>
+      <a routerLink="/assignment/{{assignmentTransmis.id}}/edit">
+        <button mat-raised-button color="primary">
+          EDIT
+        </button>
+      </a>
+    </nav>
+
+    <button mat-raised-button color="warn" (click)="onDeleteAssignment()">
+      DELETE
+    </button>
+
+  </div>
+</mat-card>

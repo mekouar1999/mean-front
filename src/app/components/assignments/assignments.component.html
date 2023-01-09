@@ -1,0 +1,61 @@
+<br><br>
+
+<h2>Assignement Dashboard</h2>
+
+<br><br>
+
+<main >
+
+  <div class="haut">
+
+  <a routerLink="/add">
+<button mat-flat-button color="accent">Ajouter Assignment</button></a>
+
+<button mat-raised-button color="primary" (click)="PeuplerBD()">peupler BD</button>
+
+<br>
+<br><br>
+
+<input [(ngModel)]="search" name="search" type="search" class="form-control" placeholder=" Rechercher assignement via id">
+
+</div>
+
+<br><br><br>
+
+
+  <table *ngFor="let a of assignments">
+
+
+
+    <nav>
+        <a routerLink="/assignment/{{a.id}}">
+
+
+
+                <ng-container >
+                  <th mat-line><strong>Nom eleve :</strong> {{a.nom}}</th>
+
+                  <mat-icon mat-list-icon *ngIf="a.rendu">done</mat-icon>
+                </ng-container>
+
+
+              <h3 mat-subheader><strong>Date de rendu de son devoir : </strong> {{a.dateDeRendu | date}}</h3>
+
+              <mat-list-item [ngClass]="{'rendu':a.rendu, 'nonRendu':!a.rendu}"(click)="assignmentClique(a)">
+
+
+              <p *ngIf="a.rendu; else nonsoumis"> <strong>Statut du devoir :</strong> {{a.nom}} a été rendu.</p>
+
+
+                <ng-template #nonsoumis> <p><strong>Statut du devoir :</strong> {{a.nom}} n'a pas été rendu à temps.</p></ng-template>
+
+              </mat-list-item>
+
+
+
+        </a>
+    </nav>
+
+  </table>
+
+</main>
