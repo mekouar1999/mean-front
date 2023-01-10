@@ -16,6 +16,9 @@ export class AssignmentsComponent implements OnInit {
   titre = 'Liste des devoirs';
   assignmentSelectionne!: Assignment;
   search!:String;
+  assignmentTransmis!: Assignment ;
+  searchItem!:string;
+
 
 
   //Pour la pagination
@@ -77,12 +80,7 @@ export class AssignmentsComponent implements OnInit {
 
   }
 
-  searchAssignement(){
-
-    console.log("recherche assingment via nom en cours");
-
-  }
- 
+  
 
   premierePage() {
     this.page = 1;
@@ -97,9 +95,10 @@ export class AssignmentsComponent implements OnInit {
   }
 
   filtreRendu(){
-    console.log("FILTRE RENDU");
+
+    console.log("FILTRE RENDU ?");
    
-  }
+}
 
   pagePrecedente() {
     if (this.hasPrevPage) {

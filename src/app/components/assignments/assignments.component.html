@@ -14,7 +14,7 @@
 
 <br><br>
 
-<input [(ngModel)]="search" name="search" type="search" (keyup)="searchAssignement()" class="form-control" placeholder=" Rechercher assignement">
+<input mat-raised-input [(ngModel)]="searchItem" name="searchItem" type="search"  class="form-control" placeholder=" Rechercher assignement">
 
 <br>
 
@@ -33,10 +33,7 @@
 
 <br><br>
 
-
-  <table *ngFor="let a of assignments">
-
-
+  <table *ngFor="let a of assignments | filter:searchItem">
 
     <nav>
         <a routerLink="/assignment/{{a.id}}">
@@ -68,7 +65,6 @@
     </nav>
 
   </table>
-
    <br><br><br><br>
 
 </main>

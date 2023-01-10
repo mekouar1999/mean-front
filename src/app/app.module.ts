@@ -25,6 +25,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 
@@ -99,7 +101,8 @@ const appRoutes : Routes = [
     MatFormFieldModule, MatInputModule, MatDatepickerModule,
     MatNativeDateModule, MatListModule, MatCardModule,
     MatCheckboxModule, MatSlideToggleModule,
-    FormsModule  ],
+    FormsModule ,
+    Ng2SearchPipeModule ],
   providers: [ValidateService,AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
