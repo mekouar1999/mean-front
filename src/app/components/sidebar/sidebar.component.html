@@ -50,13 +50,13 @@
           </a>
         </li>
 
-        <li ><a class="nav-link "
+        <li ><a class="nav-link logout "
           *ngIf="authService.getAuthStatus()"
           [routerLinkActive]="['active']"
 
           (click)="onLogoutClick()"
 
-           >Logout
+           ><strong>LOGOUT</strong>
           </a>
         </li>
 

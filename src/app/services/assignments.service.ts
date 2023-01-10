@@ -43,7 +43,6 @@ export class AssignmentsService {
     return this.http.get<Assignment[]>(this.uri);
   }
 
-
   getAssignment(id:number):Observable<Assignment|undefined> {
     /*const a:Assignment|undefined =
            this.assignments.find(a => a.id === id);

@@ -59,9 +59,10 @@
           </a>
         </li>
 
-        <li ><a class="nav-link "
+        <li ><a class="nav-link logout"
           *ngIf="authService.getAuthStatus()"
           [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact:true}"
 
           (click)="onLogoutClick()"
 

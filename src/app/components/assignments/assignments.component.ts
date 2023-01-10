@@ -4,61 +4,70 @@ import { AssignmentsService } from '../../services/assignments.service';
 import { Assignment } from './assignment.model';
 
 import { AuthService } from '../../services/auth.service'
-
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 
 @Component({
   selector: 'app-assignments',
   templateUrl: './assignments.component.html',
-  styleUrls: ['./assignments.component.css']
+  styleUrls: ['./assignments.component.css'],
 })
 export class AssignmentsComponent implements OnInit {
-  titre="Liste des devoirs";
-  assignmentSelectionne!:Assignment;
+  titre = 'Liste des devoirs';
+  assignmentSelectionne!: Assignment;
   search!:String;
 
-  assignments:Assignment[] = [];
+
+  //Pour la pagination
+  page: number = 1;
+  limit: number = 10;
+  totalDocs: number = 0;
+  totalPages: number = 0;
+  hasPrevPage: boolean = false;
+  prevPage: number = 0;
+  hasNextPage: boolean = false;
+  nextPage: number = 0;
 
 
-  page: number=1;
-  limit: number=10;
-  totalDocs!: number;
-  totalPages!: number;
-  hasPrevPage!: boolean;
-  prevPage!: number;
-  hasNextPage!: boolean;
-  nextPage!: number;
 
-  constructor(private assignmentsService:AssignmentsService,private router: Router,
-    private authService:AuthService) { }
+  assignments: Assignment[] = [];
 
-   ngOnInit(): void {
-    console.log("appelé à l'initialisation du composant");
-    this.assignmentsService.getAssignments()
-    .subscribe(assignments => this.assignments = assignments);
+  constructor(
+    private assignmentsService: AssignmentsService,
+    private _liveAnnouncer: LiveAnnouncer
+  ) {}
 
 
-    this.assignmentsService.getAssignmentsPagine(this.page, this.limit)
-    .subscribe(data => {
-      this.assignments = data.docs;
-      this.page = data.page;
-      this.limit = data.limit;
-      this.totalDocs = data.totalDocs;
-      this.totalPages = data.totalPages;
-      this.hasPrevPage = data.hasPrevPage;
-      this.prevPage = data.prevPage;
-      this.hasNextPage = data.hasNextPage;
-      this.nextPage = data.nextPage;
-      console.log("données reçues");
-    });
-
+  ngOnInit(): void {
+    this.getAssignments();
   }
 
 
-  assignmentClique(assignment:Assignment){
-    console.log("assignmentClique : " + assignment.nom);
+
+  getAssignments() {
+    console.log("appelé à l'initialisation du composant");
+    this.assignmentsService
+      .getAssignmentsPagine(this.page, this.limit)
+      .subscribe((data: { docs: Assignment[]; page: number; limit: number; totalDocs: number; totalPages: number; hasPrevPage: boolean; prevPage: number; hasNextPage: boolean; nextPage: number; }) => {
+        this.assignments = data.docs;
+        this.page = data.page;
+        this.limit = data.limit;
+        this.totalDocs = data.totalDocs;
+        this.totalPages = data.totalPages;
+        this.hasPrevPage = data.hasPrevPage;
+        this.prevPage = data.prevPage;
+        this.hasNextPage = data.hasNextPage;
+        this.nextPage = data.nextPage;
+        console.log('données reçues');
+      });
+  }
+
+  assignmentClique(assignment: Assignment) {
+    console.log('assignmentClique : ' + assignment.nom);
     this.assignmentSelectionne = assignment;
   }
+
+
   PeuplerBD(){
 
     this.assignmentsService.peuplerBD()
@@ -67,44 +76,40 @@ export class AssignmentsComponent implements OnInit {
          //this.router.navigate(["/home"], {replaceUrl:true});
 
   }
-   premierePage() {
-    this.router.navigate(['/assignments'], {
-      queryParams: {
-        page:1,
-        limit:this.limit,
-      }
-    });
+
+  searchAssignement(){
+
+    console.log("recherche assingment via nom en cours");
+
+  }
+ 
+
+  premierePage() {
+    this.page = 1;
+    this.getAssignments();
   }
 
   pageSuivante() {
-    /*
-    this.page = this.nextPage;
-    this.getAssignments();*/
-    this.router.navigate(['/assignments'], {
-      queryParams: {
-        page:this.nextPage,
-        limit:this.limit,
-      }
-    });
+    if (this.hasNextPage) {
+      this.page = this.nextPage;
+      this.getAssignments();
+    }
   }
 
+  filtreRendu(){
+    console.log("FILTRE RENDU");
+   
+  }
 
   pagePrecedente() {
-    this.router.navigate(['/assignments'], {
-      queryParams: {
-        page:this.prevPage,
-        limit:this.limit,
-      }
-    });
+    if (this.hasPrevPage) {
+      this.page = this.prevPage;
+      this.getAssignments();
+    }
   }
 
   dernierePage() {
-    this.router.navigate(['/assignments'], {
-      queryParams: {
-        page:this.totalPages,
-        limit:this.limit,
-      }
-    });
+    this.page = this.totalPages;
+    this.getAssignments();
   }
-
 }

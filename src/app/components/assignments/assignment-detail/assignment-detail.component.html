@@ -15,6 +15,18 @@
 
   <br><br><br>
 
+  <mat-card-subtitle><strong>Remarques : </strong>{{assignmentTransmis.remarques}}</mat-card-subtitle>
+
+  <br><br><br>
+
+  <mat-card-subtitle><strong>Matiere : </strong>{{assignmentTransmis.matiere}}</mat-card-subtitle>
+
+  <br><br><br>
+
+  <mat-card-subtitle><strong>Auteur : </strong>{{assignmentTransmis.auteur}}</mat-card-subtitle>
+
+  <br><br><br>
+
   <div id="bottom">
     <mat-checkbox *ngIf="!assignmentTransmis.rendu" [checked]="assignmentTransmis.rendu" (click)="onAssignmentRendu()">
       Devoir rendu

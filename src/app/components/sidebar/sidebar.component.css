@@ -12,3 +12,8 @@ li{
     justify-content: center;
     margin-top: 5rem;
 }
+
+.logout:hover{
+
+    cursor: pointer;
+}
