@@ -22,8 +22,8 @@ export class AssignmentsComponent implements OnInit {
 
 
   //Pour la pagination
-  page: number = 1;
-  limit: number = 10;
+  page!: number;
+  limit: number = 100;
   totalDocs: number = 0;
   totalPages: number = 0;
   hasPrevPage: boolean = false;

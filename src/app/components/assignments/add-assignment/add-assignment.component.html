@@ -11,8 +11,8 @@
 
     <mat-label>Nom du devoir à ajouter</mat-label>
 
-    <input matInput [(ngModel)]="nomDevoir"
-           name="nom"
+    <input matInput [(ngModel)]="matiere"
+           name="matiere"
            >
   </mat-form-field>
 
@@ -24,7 +24,7 @@
 
     <mat-label>Nom de l'eleve</mat-label>
 
-    <input matInput [(ngModel)]="nomEleve"
+    <input matInput [(ngModel)]="nom"
            name="nom"
            >
   </mat-form-field>
@@ -32,10 +32,30 @@
   <br>
 
   <mat-form-field>
+
+    <mat-label>Nom du professeur</mat-label>
+
+    <input matInput [(ngModel)]="auteur"
+           name="auteur"
+           >
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+
+    <mat-label>Note</mat-label>
+
+    <input matInput [(ngModel)]="note"
+           name="note"
+           >
+  </mat-form-field>
+
+  <mat-form-field>
     <mat-label>Remarques</mat-label>
 
-    <input matInput [(ngModel)]="Remarque"
-           name="Remarque"
+    <input matInput [(ngModel)]="remarques"
+           name="remarques"
            >
   </mat-form-field>
 
@@ -67,8 +87,6 @@
   <br><br>
 
   <button
-
-
     mat-stroked-button
            color="primary">
       Ajouter un devoir

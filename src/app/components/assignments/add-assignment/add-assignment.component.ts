@@ -15,8 +15,17 @@ export class AddAssignmentComponent implements OnInit {
 // Pour le formulaire
 nomDevoir = "";
 dateDeRendu!:Date;
-nomEleve = "";
-Remarque = "";
+nom = "";
+remarques = "";
+matiere = "";
+auteur = "";
+note="";
+rendu!:boolean;
+
+
+
+  assignments: any;
+  nouvelAssignment: any;
 
   constructor(private assignmentsService:AssignmentsService,
               private router: Router,
@@ -33,18 +42,26 @@ Remarque = "";
 
     // On ajoute un nouvel assignment
     let nouvelAssignment = new Assignment();
-    nouvelAssignment.nom = this.nomDevoir;
+
+    nouvelAssignment.nom = this.nom;
     nouvelAssignment.dateDeRendu = this.dateDeRendu;
     nouvelAssignment.rendu = false;
     nouvelAssignment.id = Math.floor(Math.random()*1000);
-    // le tableau est chez le papa comment faire ?
-    //this.assignments.push(nouvelAssignment);
+    nouvelAssignment.remarques = this.remarques;
+    nouvelAssignment.matiere = this.matiere;
+    nouvelAssignment.auteur = this.auteur;
+    nouvelAssignment.note = this.note;
+
+
+    
+
+//    this.assignments.push(nouvelAssignment);
 
     //this.nouvelAssignment.emit(nouvelAssignment);
     this.assignmentsService.addAssignment(nouvelAssignment)
     .subscribe((reponse) => {
       console.log(reponse.message);
-
+      console.log("devoir ajouté : " + nouvelAssignment.nom)
 
       this.router.navigate(['assignments'])
       this.toastr.success(' Le devoir a été ajouté avec succés ' ,'Félicitation !',

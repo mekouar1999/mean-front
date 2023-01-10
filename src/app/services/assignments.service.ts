@@ -33,6 +33,7 @@ export class AssignmentsService {
           "intitulé": "Gestion de projet",
           "imgProf": "https://robohash.org/voluptateetpraesentium.png?size=50x50&set=set1"
           }, ];
+  filtreRendu: any;
   constructor(private loggingService:LoggingService,
               private http:HttpClient) { }
 
@@ -72,14 +73,18 @@ export class AssignmentsService {
       return of(result as T)
     };
   }
+
+
   addAssignment(assignment:Assignment):Observable<any> {
-    //this.assignments.push(assignment);
+
+   // this.assignments.push(assignment);
     // ex utilisation du service de log
     this.loggingService.log(assignment.nom, "ajouté");
 
     //return of("Assignment ajouté");
     return this.http.post(this.uri, assignment, this.httpOptions);
   }
+
 
   deleteAssignment(assignment:Assignment):Observable<any> {
     /*const position = this.assignments.indexOf(assignment);
