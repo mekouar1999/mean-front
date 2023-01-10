@@ -23,7 +23,7 @@ export class AssignmentsComponent implements OnInit {
 
   //Pour la pagination
   page!: number;
-  limit: number = 100;
+  limit: number = 20;
   totalDocs: number = 0;
   totalPages: number = 0;
   hasPrevPage: boolean = false;
