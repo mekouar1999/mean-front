@@ -1,4 +1,4 @@
-<br><br>
+<!--<br><br>
 
 <div class="container" *ngIf="assignment">
   <h2>Edition de l'assignment {{assignment.nom}}</h2>
@@ -42,4 +42,95 @@
   </form>
  </div>
 
- <br><br><br><br>
+ <br><br><br><br>-->
+
+<mat-horizontal-stepper  #stepper [linear]="isLinear">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Edition du nom</ng-template>
+      <mat-form-field>
+        <mat-label>Edition du nom</mat-label>
+        <input matInput placeholder="Edition du nom" [(ngModel)]="nomAssignment" name="assignment-name" formControlName="firstCtrl">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Edition de l'auteur</ng-template>
+      <mat-form-field>
+        <mat-label>Edition de l'auteur</mat-label>
+        <input matInput placeholder="Edition de l'auteur " [(ngModel)]="auteur" name="auteur" formControlName="secondCtrl">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel> Edition de la Matière</ng-template>
+      <!--<mat-form-field>
+        <mat-label>la matiere</mat-label>
+        <mat-selection-list [(ngModel)]="nomEleve" name="matiere" placeholder="la matiere" required>
+          
+        </mat-selection-list>
+      </mat-form-field>-->
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>Edition de la note</ng-template>
+      <mat-form-field>
+        <mat-label>Edition de la note</mat-label>
+        <input matInput placeholder="Edition de la note" [(ngModel)]="note" name="note"  formControlName="fourthCtrl">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="fifthFormGroup">
+    <form [formGroup]="fifthFormGroup">
+      <ng-template matStepLabel>Edition de la remarque</ng-template>
+      <mat-form-field>
+        <mat-label>Edition de la remarque</mat-label>
+        <input matInput placeholder="Edition de la remarque " [(ngModel)]="remarques" name="remarques" formControlName="fifthCtrl">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="sixthFormGroup" label="Edition de la date du rendu">
+    <form [formGroup]="sixthFormGroup">
+      <mat-form-field>
+        <mat-label>Edition de la date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="sixthCtrl" placeholder="Edition de la date" [(ngModel)]="dateDeRendu" name="date">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" [disabled]="((!nomAssignment)||(!dateDeRendu))">
+        Sauvegarder les modifications
+      </button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

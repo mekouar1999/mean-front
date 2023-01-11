@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/services/assignments.service';
 import { Assignment } from '../assignment.model';
 import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -22,14 +23,37 @@ auteur = "";
 note="";
 rendu!:boolean;
 
-
-
   assignments: any;
   nouvelAssignment: any;
 
-  constructor(private assignmentsService:AssignmentsService,
-              private router: Router,
-              private toastr: ToastrService
+  isLinear = false
+
+  firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+ 
+  
+  thirdFormGroup = this._formBuilder.group({
+      thirdCtrl: ['', Validators.required]
+    });
+fourthFormGroup = this._formBuilder.group({
+      fourthCtrl: ['', Validators.required]
+    });
+  fifthFormGroup = this._formBuilder.group({
+      fifthCtrl: ['', Validators.required]
+    });
+    sixthFormGroup = this._formBuilder.group({
+      sixthCtrl: ['', Validators.required]
+    });
+nomEleve: any;
+
+  constructor(private assignmentsService: AssignmentsService,
+    private router: Router,
+    private toastr: ToastrService,
+    private _formBuilder: FormBuilder
 
               ) { }
 
@@ -59,7 +83,7 @@ rendu!:boolean;
 
     //this.nouvelAssignment.emit(nouvelAssignment);
     this.assignmentsService.addAssignment(nouvelAssignment)
-    .subscribe((reponse) => {
+    .subscribe((reponse: { message: any; }) => {
       console.log(reponse.message);
       console.log("devoir ajouté : " + nouvelAssignment.nom)
 

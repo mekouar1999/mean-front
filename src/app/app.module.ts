@@ -3,7 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +26,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import {MatStepperModule} from '@angular/material/stepper';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -100,10 +103,11 @@ const appRoutes : Routes = [
     MatButtonModule, MatIconModule, MatDividerModule,
     MatFormFieldModule, MatInputModule, MatDatepickerModule,
     MatNativeDateModule, MatListModule, MatCardModule,
-    MatCheckboxModule, MatSlideToggleModule,
-    FormsModule ,
+    MatCheckboxModule, MatSlideToggleModule,ReactiveFormsModule,
+    FormsModule, MatStepperModule, Ng2SearchPipeModule,MatTableModule,MatSelectModule,
     Ng2SearchPipeModule ],
   providers: [ValidateService,AuthService,AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

@@ -34,6 +34,7 @@ export class AssignmentsComponent implements OnInit {
 
 
   assignments: Assignment[] = [];
+  displayedColumns: string[] = ['id', 'nom', 'dateDeRendu', 'rendu', 'details'];
 
   constructor(
     private assignmentsService: AssignmentsService,

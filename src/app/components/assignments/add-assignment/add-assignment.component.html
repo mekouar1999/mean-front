@@ -1,96 +1,104 @@
-
 <br><br><br>
 
 <h2> Ajout de devoir</h2>
-
-<br><br>
-
-<form (submit)="onSubmit(); assignmentForm.reset()"
-      ngForm #assignmentForm class="form">
-  <mat-form-field>
-
-    <mat-label>Nom du devoir à ajouter</mat-label>
-
-    <input matInput [(ngModel)]="matiere"
-           name="matiere"
-           >
-  </mat-form-field>
-
-
-
-  <br>
-
-  <mat-form-field>
-
-    <mat-label>Nom de l'eleve</mat-label>
-
-    <input matInput [(ngModel)]="nom"
-           name="nom"
-           >
-  </mat-form-field>
-
-  <br>
-
-  <mat-form-field>
-
-    <mat-label>Nom du professeur</mat-label>
-
-    <input matInput [(ngModel)]="auteur"
-           name="auteur"
-           >
-  </mat-form-field>
-
-  <br>
-
-  <mat-form-field>
-
-    <mat-label>Note</mat-label>
-
-    <input matInput [(ngModel)]="note"
-           name="note"
-           >
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Remarques</mat-label>
-
-    <input matInput [(ngModel)]="remarques"
-           name="remarques"
-           >
-  </mat-form-field>
-
-  <br>
-
-  <mat-form-field appearance="fill">
-
-    <mat-label>Date de rendu</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="dateDeRendu" name="date">
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-  <br><br>
-
-  <h4> Mat-select de base </h4 >
-  <!--<mat-form-field appearance = "fill" >
-    <mat-label> matières</mat-label >
-      <mat-select name="name" placeholder="Nom de la matiere" formControlName="thirdCtrl" required>
-        <mat-option value="Big data">Big data</mat-option>
-        <mat-option value="Web">Web</mat-option>
-        <mat-option value="Android">Android</mat-option>
-        <mat-option value="Oracle sql">Oracle sql</mat-option>
-        <mat-option value="Java">Java</mat-option>
-      </mat-select>
-  </mat-form-field >!-->
-
-  <br><br>
-
-  <button
-    mat-stroked-button
-           color="primary">
-      Ajouter un devoir
-    </button>
-</form>
-
-<br><br><br><br>
+<br><br><br>
+<mat-horizontal-stepper  #stepper [linear]="isLinear">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Nom du devoir</ng-template>
+      <mat-form-field>
+        <mat-label>Nom du devoir</mat-label>
+        <input matInput [(ngModel)] = "nomDevoir" name="name" placeholder="Nom du devoir" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Nom de l'eleve</ng-template>
+      <mat-form-field>
+        <mat-label>Nom de l'eleve</mat-label>
+        <input matInput [(ngModel)]="nomEleve" name="nom" placeholder="Nom de l'eleve" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Matière</ng-template>
+      <!--<mat-form-field>
+        <mat-label>la matiere</mat-label>
+        <mat-selection-list [(ngModel)]="nomEleve" name="matiere" placeholder="la matiere" required>
+          
+        </mat-selection-list>
+      </mat-form-field>-->
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+    
+     <!-- <mat-form-field appearance = "fill" >
+        <mat-label> matières</mat-label >
+          <mat-select name="name" placeholder="Nom de la matiere" formControlName="thirdCtrl" required>
+            <mat-option value="Big data">Big data</mat-option>
+            <mat-option value="Web">Web</mat-option>
+            <mat-option value="Innovation">Android</mat-option>
+            <mat-option value="Oracle sql">Oracle sql</mat-option>
+            <mat-option value="Java">Java</mat-option>
+          </mat-select>
+      </mat-form-field >-->
+      
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>Remarque</ng-template>
+      <mat-form-field>
+        <mat-label>Remarque</mat-label>
+        <input matInput [(ngModel)]="remarques"
+        name="Remarque" placeholder="Remarque" formControlName="fourthCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="fifthFormGroup">
+    <form [formGroup]="fifthFormGroup">
+      <ng-template matStepLabel>Note</ng-template>
+      <mat-form-field>
+        <mat-label>Note</mat-label>
+        <input matInput [(ngModel)]="note"
+        name="note" placeholder="note" formControlName="fifthCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="sixthFormGroup" label="La date du rendu">
+    <form [formGroup]="sixthFormGroup">
+      <mat-form-field>
+        <mat-label>Date du rendu</mat-label>
+        <input matInput [(ngModel)]="dateDeRendu" name="date" formControlName="sixthCtrl" placeholder="Ex 10-02-1999" [matDatepicker]="picker"  required>
+        <mat-datepicker-toggle metSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="onSubmit() ; stepper.reset()">Ajouter le devoir</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
