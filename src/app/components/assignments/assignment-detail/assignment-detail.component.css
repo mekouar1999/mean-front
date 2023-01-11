@@ -15,16 +15,20 @@ h2{
 button{
 
   padding: 2rem;
+  margin: 0.5rem;
+  color: white;
 
 }
 
-
+mat-checkbox{
+  color: white;
+}
 
 mat-card-subtitle{
 
   text-align: center;
   font-size: 1rem;
-  color: rgb(10, 6, 15);
+  color: rgb(6, 13, 15);
 
 }
 
