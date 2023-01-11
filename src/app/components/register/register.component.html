@@ -9,22 +9,22 @@
 <form (submit)="onRegisterSubmit()" >
   <div class="form-group">
     <label for="name"><strong>Name</strong></label>
-    <input  [(ngModel)]="name" name="name" type="text" class="form-control" id="name" placeholder="Enter Name">
+    <input  [(ngModel)]="name" name="name" type="text" class="form-control" id="name" placeholder="Entez votre nom">
   </div>
   <div class="form-group">
     <label for="username"><strong>Username</strong></label>
-    <input [(ngModel)]="username" name="username" type="text"  class="form-control" id="username" placeholder="Enter Username">
+    <input [(ngModel)]="username" name="username" type="text"  class="form-control" id="username" placeholder="Entez votre identifiant">
   </div>
   <div class="form-group">
     <label for="email"><strong>Email</strong></label>
-    <input  type="email" [(ngModel)]="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email">
+    <input  type="email" [(ngModel)]="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Entez votre adresse Mail">
   </div>
   <div class="form-group">
     <label for="password"><strong>Password</strong></label>
-    <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" placeholder=" Enter Password">
+    <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" placeholder=" Enter votre mot de passe">
   </div>
 <br>
-  <input type="submit" class="btn btn-primary" value="Submit">
+  <input type="submit" class="btn btn-primary" value="S'enregistrer">
 </form>
 
 <br><br>

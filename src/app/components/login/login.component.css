@@ -1,5 +1,5 @@
 *{
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 h2{
@@ -7,6 +7,10 @@ h2{
   text-align: center;
   color: blueviolet;
 
+}
+
+input{
+  font-size: 1rem;
 }
 
 
