@@ -77,7 +77,7 @@ export class AssignmentsService {
 
   addAssignment(assignment:Assignment):Observable<any> {
 
-   // this.assignments.push(assignment);
+   this.assignments.push(assignment);
     // ex utilisation du service de log
     this.loggingService.log(assignment.nom, "ajouté");
 

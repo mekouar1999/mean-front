@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AssignmentsService } from '../../services/assignments.service';
 import { Assignment } from './assignment.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service'
 import { LiveAnnouncer } from '@angular/cdk/a11y';
@@ -37,7 +37,8 @@ export class AssignmentsComponent implements OnInit {
 
   constructor(
     private assignmentsService: AssignmentsService,
-    private _liveAnnouncer: LiveAnnouncer
+    private _liveAnnouncer: LiveAnnouncer,
+    private router: Router,
   ) {}
 
 
@@ -68,7 +69,14 @@ export class AssignmentsComponent implements OnInit {
   assignmentClique(assignment: Assignment) {
     console.log('assignmentClique : ' + assignment.nom);
     this.assignmentSelectionne = assignment;
+  
+    this.router.navigate(['assignment/:id']);
+
+
   }
+
+  
+
 
 
   PeuplerBD(){
@@ -111,4 +119,8 @@ export class AssignmentsComponent implements OnInit {
     this.page = this.totalPages;
     this.getAssignments();
   }
+}
+
+function navigateByUrl(arg0: string) {
+  throw new Error('Function not implemented.');
 }

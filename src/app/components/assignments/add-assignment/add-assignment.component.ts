@@ -46,7 +46,7 @@ rendu!:boolean;
     nouvelAssignment.nom = this.nom;
     nouvelAssignment.dateDeRendu = this.dateDeRendu;
     nouvelAssignment.rendu = false;
-    nouvelAssignment.id = Math.floor(Math.random()*1000);
+    nouvelAssignment.id = 1000 + Math.floor(Math.random()*1000);
     nouvelAssignment.remarques = this.remarques;
     nouvelAssignment.matiere = this.matiere;
     nouvelAssignment.auteur = this.auteur;
