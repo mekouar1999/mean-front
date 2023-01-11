@@ -33,11 +33,7 @@ button{
   align-items: baseline;
 }
 
-input{
 
-  margin-left: 2rem;
-
-}
 
 mat-checkbox {
   margin-top: 0.2rem;
