@@ -1,42 +1,39 @@
 
 <h2>Modification / Supression du devoir</h2>
 
-<br><br>
+<br>
 
 <mat-card *ngIf="assignmentTransmis">
 
   <br>
 
-  <mat-card-title><strong>Nom de l'eleve :</strong> {{assignmentTransmis.nom}}</mat-card-title>
+  <mat-card-title><h5>Nom de l'eleve :</h5> {{assignmentTransmis.nom}}</mat-card-title>
 
   <br><br>
 
-  <mat-card-subtitle><strong>Date de rendu : </strong>{{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
+  <mat-card-subtitle><h5>Date de rendu : </h5>{{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
 
-  <br><br><br>
+  <br><br>
 
-  <mat-card-subtitle><strong>Remarques : </strong>{{assignmentTransmis.remarques}}</mat-card-subtitle>
+  <mat-card-subtitle><h5>Remarques : </h5>{{assignmentTransmis.remarques}}</mat-card-subtitle>
 
-  <br><br><br>
+  <br><br>
 
-  <mat-card-subtitle><strong>Matiere : </strong>{{assignmentTransmis.matiere}}</mat-card-subtitle>
+  <mat-card-subtitle><h5>Matiere : </h5>{{assignmentTransmis.matiere}}</mat-card-subtitle>
 
-  <br><br><br>
+  <br><br>
 
-  <mat-card-subtitle><strong>Nom du Professeur : </strong>{{assignmentTransmis.auteur}}</mat-card-subtitle>
+  <mat-card-subtitle><h5>Nom du Professeur : </h5>{{assignmentTransmis.auteur}}</mat-card-subtitle>
 
-  <br><br><br>
+  <br>
 
   <div id="bottom">
   
 
     <button mat-raised-button font-color="white" color="warn"><mat-checkbox *ngIf="!assignmentTransmis.rendu" [checked]="assignmentTransmis.rendu" (click)="onAssignmentRendu()">
 
-      DEVOIR RENDU ?</mat-checkbox>
+      <strong>RENDU</strong></mat-checkbox>
     </button>
-
-
-
 
     <nav>
       <a routerLink="/assignment/{{assignmentTransmis.id}}/edit">
