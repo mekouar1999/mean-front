@@ -2,13 +2,16 @@
 
 <h2> Ajout de devoir</h2>
 <br><br><br>
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
 <mat-horizontal-stepper  #stepper [linear]="isLinear">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Nom du devoir</ng-template>
       <mat-form-field>
         <mat-label>Nom du devoir</mat-label>
-        <input matInput [(ngModel)] = "nomDevoir" name="name" placeholder="Nom du devoir" formControlName="firstCtrl" required>
+        <input matInput [(ngModel)]="nom" name="nom" placeholder="Nom du devoir" formControlName="firstCtrl" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
@@ -20,7 +23,7 @@
       <ng-template matStepLabel>Nom de l'eleve</ng-template>
       <mat-form-field>
         <mat-label>Nom de l'eleve</mat-label>
-        <input matInput [(ngModel)]="nomEleve" name="nom" placeholder="Nom de l'eleve" formControlName="secondCtrl" required>
+        <input matInput [(ngModel)]="auteur" name="auteur" placeholder="Nom de l'eleve" formControlName="secondCtrl" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
@@ -30,28 +33,21 @@
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Matière</ng-template>
-      <!--<mat-form-field>
-        <mat-label>la matiere</mat-label>
-        <mat-selection-list [(ngModel)]="nomEleve" name="matiere" placeholder="la matiere" required>
-          
-        </mat-selection-list>
-      </mat-form-field>-->
+      <mat-form-field appearance = "fill" >
+        <mat-label> matières</mat-label >
+          <mat-select [(ngModel)] = "matiere" name="matiere" placeholder="Nom de la matiere" formControlName="thirdCtrl" required>
+            <mat-option value="Big data">Big data</mat-option>
+            <mat-option value="Techno Web">Techne Web</mat-option>
+            <mat-option value="Innovation">Android</mat-option>
+            <mat-option value="Oracle sql">Oracle sql</mat-option>
+            <mat-option value="Java">Java</mat-option>
+          </mat-select>
+      </mat-form-field >
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-    
-     <!-- <mat-form-field appearance = "fill" >
-        <mat-label> matières</mat-label >
-          <mat-select name="name" placeholder="Nom de la matiere" formControlName="thirdCtrl" required>
-            <mat-option value="Big data">Big data</mat-option>
-            <mat-option value="Web">Web</mat-option>
-            <mat-option value="Innovation">Android</mat-option>
-            <mat-option value="Oracle sql">Oracle sql</mat-option>
-            <mat-option value="Java">Java</mat-option>
-          </mat-select>
-      </mat-form-field >-->
       
   <mat-step [stepControl]="fourthFormGroup">
     <form [formGroup]="fourthFormGroup">
@@ -94,8 +90,8 @@
     </form>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
+    <ng-template matStepLabel>Terminé</ng-template>
+    <p>Vous avez terminé.</p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="onSubmit() ; stepper.reset()">Ajouter le devoir</button>

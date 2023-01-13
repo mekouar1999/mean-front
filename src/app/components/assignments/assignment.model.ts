@@ -10,6 +10,8 @@ export class Assignment {
   note!: string;
   remarques!: string;
   matiere!: string;
+  imgProf!:String;
+  imgMatiere!:String;
   //matiere!: { imgMat: string; intitulé: string; imgProf: string; };
   auteur!: string;
 
