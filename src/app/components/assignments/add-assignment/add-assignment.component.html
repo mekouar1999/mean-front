@@ -3,8 +3,11 @@
 <h2> Ajout de devoir</h2>
 <br>
 
-<mat-horizontal-stepper  #stepper>
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Activer le monde linéaire' : 'Interdire le mode linéaire'}}
+</button>
 
+<mat-horizontal-stepper  #stepper [linear]="isLinear">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Nom du devoir</ng-template>
