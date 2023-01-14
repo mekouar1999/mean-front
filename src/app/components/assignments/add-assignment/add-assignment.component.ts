@@ -18,8 +18,8 @@ dateDeRendu!:Date;
 nom = "";
 remarques = "";
 matiere = "";
-prof = "";
-mat = "";
+imgProf = "";
+imgMatiere = "";
 auteur = "";
 note="";
 rendu!:boolean;
@@ -62,19 +62,21 @@ nomEleve: any;
   }
 
   onSubmit(){
-    let prof:string;
-    let mat:string;
-    // console.log("onSubmit : " + this.nomDevoir +
-    //             " date de rendu : " + this.dateDeRendu);
- //'Big data','Data science','Web','.NET','IOS','Android','Oracle sql','Grails','Java'
-    if(this.matiere == 'Techno Web' ) {
-      prof = 'https://univ-cotedazur.fr/medias/photo/rs9100-buffa-michel-scr_1623769953324-jpg?ID_FICHE=1094906';
-      mat = 'https://thumbs.dreamstime.com/z/codage-de-site-web-technologie-l-information-124596813.jpg';
+
+    if(this.matiere === 'Big data') {
+      this.imgProf = 'https://univ-cotedazur.fr/medias/photo/rs9100-buffa-michel-scr_1623769953324-jpg?ID_FICHE=1094906';
+      this.imgMatiere = 'https://thumbs.dreamstime.com/z/codage-de-site-web-technologie-l-information-124596813.jpg';}
+   
+    else if (this.matiere === 'Innovation') {
+      this.imgProf = 'https://univ-cotedazur.fr/medias/photo/anblandel_1655915226640-jpg?ID_FICHE=1094906';
+      this.imgMatiere = 'https://img.freepik.com/photos-gratuite/concept-rpa-ecran-tactile-flou-main_23-2149311914.jpg?w=996&t=st=1673553791~exp=1673554391~hmac=e0128d9da518076a0e2a1e4cbd56aabc602847414d40131e294ff56b6294db6e';
     }
-    else if (this.matiere == 'Innovation') {
-      prof = 'https://univ-cotedazur.fr/medias/photo/anblandel_1655915226640-jpg?ID_FICHE=1094906';
-      mat = 'https://img.freepik.com/photos-gratuite/concept-rpa-ecran-tactile-flou-main_23-2149311914.jpg?w=996&t=st=1673553791~exp=1673554391~hmac=e0128d9da518076a0e2a1e4cbd56aabc602847414d40131e294ff56b6294db6e';
+    else {
+      this.imgProf = 'https://univ-cotedazur.fr/medias/photo/rs9100-buffa-michel-scr_1623769953324-jpg?ID_FICHE=1094906';
+      this.imgMatiere = 'https://thumbs.dreamstime.com/z/codage-de-site-web-technologie-l-information-124596813.jpg';
     }
+
+  
 
     // On ajoute un nouvel assignment
     let nouvelAssignment = new Assignment();
@@ -84,8 +86,8 @@ nomEleve: any;
     nouvelAssignment.id = 1000 + Math.floor(Math.random()*1000);
     nouvelAssignment.remarques = this.remarques;
     nouvelAssignment.matiere = this.matiere;
-    nouvelAssignment.imgProf = this.prof;
-    nouvelAssignment.imgMatiere = this.mat;
+    nouvelAssignment.imgProf = this.imgProf;
+    nouvelAssignment.imgMatiere = this.imgMatiere;
     nouvelAssignment.auteur = this.auteur;
     nouvelAssignment.note = this.note;
 

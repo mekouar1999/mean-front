@@ -13,26 +13,7 @@ export class AssignmentsService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
   assignments:Assignment[] = []
-  Matieres = [{
-    "imgMat": "https://robohash.org/laboreodiomaiores.png?size=50x50&set=set1",
-    "intitulé": "TechnoWeb",
-    "imgProf": "https://robohash.org/voluptateetpraesentium.png?size=50x50&set=set1"
-    },
-    {
-      "imgMat": "https://robohash.org/laboreodiomaiores.png?size=50x50&set=set1",
-      "intitulé": "Bases de données",
-      "imgProf": "https://robohash.org/voluptateetpraesentium.png?size=50x50&set=set1"
-      },
-      {
-        "imgMat": "https://robohash.org/laboreodiomaiores.png?size=50x50&set=set1",
-        "intitulé": "Grails",
-        "imgProf": "https://robohash.org/voluptateetpraesentium.png?size=50x50&set=set1"
-        },
-        {
-          "imgMat": "https://robohash.org/laboreodiomaiores.png?size=50x50&set=set1",
-          "intitulé": "Gestion de projet",
-          "imgProf": "https://robohash.org/voluptateetpraesentium.png?size=50x50&set=set1"
-          }, ];
+
   filtreRendu: any;
   constructor(private loggingService:LoggingService,
               private http:HttpClient) { }
@@ -121,7 +102,12 @@ export class AssignmentsService {
       nom: string;
       dateDeRendu: string | number | Date;
       rendu: boolean;
+      imgMatiere: string;
+      imgProf: string;
+      
 }) => {
+
+  
 
       //const randomMatieres = Math.floor(Math.random()*this.Matieres.length)
       let nouvelAssignment = new Assignment();
@@ -133,7 +119,8 @@ export class AssignmentsService {
       nouvelAssignment.note = a.note;
       nouvelAssignment.remarques = a.remarques;
       nouvelAssignment.matiere = a.matiere;
-      //nouvelAssignment.matiere = this.Matieres[randomMatieres];
+     nouvelAssignment.imgMatiere = a.imgMatiere
+     nouvelAssignment.imgProf = a.imgProf;
       nouvelAssignment.auteur = a.auteur;
 
       this.addAssignment(nouvelAssignment)

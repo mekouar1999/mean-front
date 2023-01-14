@@ -89,11 +89,6 @@ nomEleve: any;
       this.auteur= assignment.auteur;
       this.matiere= assignment.matiere;
 
-
-
-
-
-
     });
   }
   onSaveAssignment() {

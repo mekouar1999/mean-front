@@ -19,13 +19,18 @@
 
   <br><br>
 
+  <div class="matiere">
+
   <mat-card-subtitle><h5>Matiere : </h5>{{assignmentTransmis.matiere}}</mat-card-subtitle>
 
+  <img src={{assignmentTransmis.imgMatiere}} alt="photo matiere">
+
+</div>
+
   <br><br>
+  <img src={{assignmentTransmis.imgProf}} alt="Photo prof">
 
-  <!-- <mat-card-subtitle><h5>Nom du Professeur : </h5>{{assignmentTransmis.auteur}}</mat-card-subtitle> -->
-
-  <br>
+  <br><br>
 
   <div id="bottom">
   
@@ -34,7 +39,6 @@
 
       <strong>RENDU</strong></mat-checkbox>
     </button>
-
     <nav>
       <a routerLink="/assignment/{{assignmentTransmis.id}}/edit">
         <button mat-raised-button color="primary">

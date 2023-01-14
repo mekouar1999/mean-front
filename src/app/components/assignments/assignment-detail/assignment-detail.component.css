@@ -11,6 +11,16 @@ h2{
 
 }
 
+img{
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto;
+  display: block;
+}
+
+.matiere{
+ 
+}
 
 button{
 

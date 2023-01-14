@@ -21,26 +21,32 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Nom de l'eleve</ng-template>
+
+
       <mat-form-field>
         <mat-label>Nom de l'eleve</mat-label>
         <input matInput [(ngModel)]="auteur" name="auteur" placeholder="Nom de l'eleve" formControlName="secondCtrl" required>
       </mat-form-field>
+
+
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
+
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Matière</ng-template>
       <mat-form-field appearance = "fill" >
         <mat-label> matières</mat-label >
+
           <mat-select [(ngModel)] = "matiere" name="matiere" placeholder="Nom de la matiere" formControlName="thirdCtrl" required>
-            <mat-option value="Big data">Big data</mat-option>
-            <mat-option value="Techno Web">Techne Web</mat-option>
-            <mat-option value="Innovation">Android</mat-option>
-            <mat-option value="Oracle sql">Oracle sql</mat-option>
-            <mat-option value="Java">Java</mat-option>
+            <mat-option [(ngModel)] = "imgMatiere" name="imgMatiere" value="Big data">Big data</mat-option>
+            <mat-option [(ngModel)] = "imgMatiere" name="imgMatiere" value="Techno Web">Techno Web</mat-option>
+            <mat-option [(ngModel)] = "imgMatiere" name="imgMatiere" value="Innovation">Innovation</mat-option>
+            
+
           </mat-select>
       </mat-form-field >
       <div>
@@ -51,12 +57,15 @@
       
   <mat-step [stepControl]="fourthFormGroup">
     <form [formGroup]="fourthFormGroup">
+
+
       <ng-template matStepLabel>Remarque</ng-template>
+      
       <mat-form-field>
         <mat-label>Remarque</mat-label>
-        <input matInput [(ngModel)]="remarques"
-        name="Remarque" placeholder="Remarque" formControlName="fourthCtrl" required>
+        <input matInput [(ngModel)]="remarques"name="Remarque" placeholder="Remarque" formControlName="fourthCtrl" required>
       </mat-form-field>
+
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
