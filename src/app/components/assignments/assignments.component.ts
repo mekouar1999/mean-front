@@ -98,12 +98,11 @@ export class AssignmentsComponent implements OnInit {
     }
   }
 
+ 
   filtreRendu(){
 
-    console.log("FILTRE RENDU ?");
     this.assignments = this.assignments
     .filter((assignment: { rendu: boolean; }) => assignment.rendu === true)   
-    console.log("FILTRE RENDU OK");
 
 
     setTimeout(() => {
@@ -121,11 +120,16 @@ export class AssignmentsComponent implements OnInit {
 
   filtreNonRendu(){
       
-      console.log("FILTRE NON RENDU ?");
       this.assignments = this.assignments
       .filter((assignment: { rendu: boolean; }) => assignment.rendu === false)   
-      console.log("FILTRE NON RENDU OK");
 
+
+    setTimeout(() => {
+
+      this.clear()
+      
+    }, 5000);
+    
     
 }
 
