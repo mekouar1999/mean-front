@@ -104,8 +104,7 @@ const appRoutes : Routes = [
     MatFormFieldModule, MatInputModule, MatDatepickerModule,
     MatNativeDateModule, MatListModule, MatCardModule,
     MatCheckboxModule, MatSlideToggleModule,ReactiveFormsModule,
-    FormsModule, MatStepperModule, Ng2SearchPipeModule,MatTableModule,MatSelectModule,
-    Ng2SearchPipeModule ],
+    FormsModule, MatStepperModule, Ng2SearchPipeModule,MatTableModule,MatSelectModule],
   providers: [ValidateService,AuthService,AuthGuard],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
