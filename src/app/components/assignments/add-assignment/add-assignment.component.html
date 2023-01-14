@@ -39,8 +39,11 @@
 
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
+
       <ng-template matStepLabel>Matière</ng-template>
       <mat-form-field appearance = "fill" >
+
+
         <mat-label> matières</mat-label >
 
           <mat-select [(ngModel)] = "matiere" name="matiere" placeholder="Nom de la matiere" formControlName="thirdCtrl" required>

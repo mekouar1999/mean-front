@@ -90,7 +90,7 @@ nomEleve: any;
     nouvelAssignment.imgMatiere = this.imgMatiere;
     nouvelAssignment.auteur = this.auteur;
     nouvelAssignment.note = this.note;
-
+    
 //    this.assignments.push(nouvelAssignment);
 
     //this.nouvelAssignment.emit(nouvelAssignment);

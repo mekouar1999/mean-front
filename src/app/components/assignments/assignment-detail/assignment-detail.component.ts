@@ -18,7 +18,6 @@ export class AssignmentDetailComponent implements OnInit {
               private router:Router,
               private toastr: ToastrService
 
-
               ) {}
 
   // Appelé AVANT l'affichage du composant, fait partie du
