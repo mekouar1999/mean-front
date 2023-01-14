@@ -1,16 +1,18 @@
-<br><br><br>
+<br><br>
 
 <h2> Ajout de devoir</h2>
-<br><br><br>
+<br>
 <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  {{!isLinear ? 'Activer le monde linéaire' : 'Interdire le mode linéaire'}}
 </button>
+
 <mat-horizontal-stepper  #stepper [linear]="isLinear">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Nom du devoir</ng-template>
       <mat-form-field>
         <mat-label>Nom du devoir</mat-label>
+        
         <input matInput [(ngModel)]="nom" name="nom" placeholder="Nom du devoir" formControlName="firstCtrl" required>
       </mat-form-field>
       <div>

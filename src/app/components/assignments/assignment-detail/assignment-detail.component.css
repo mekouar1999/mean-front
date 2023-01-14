@@ -12,13 +12,20 @@ h2{
 }
 
 img{
-  width: 5rem;
-  height: 5rem;
-  margin: 0 auto;
-  display: block;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 1rem;
+  text-align: center;
+  justify-content: center;
+
+
 }
 
 .matiere{
+
+  margin-top: 2rem;
+  display: flex;
+  justify-content:space-around;
  
 }
 
