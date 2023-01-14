@@ -5,6 +5,7 @@ import { Assignment } from './assignment.model';
 
 import { AuthService } from '../../services/auth.service'
 import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { DataSource } from '@angular/cdk/collections';
 
 
 @Component({
@@ -100,7 +101,32 @@ export class AssignmentsComponent implements OnInit {
   filtreRendu(){
 
     console.log("FILTRE RENDU ?");
-   
+    this.assignments = this.assignments
+    .filter((assignment: { rendu: boolean; }) => assignment.rendu === true)   
+    console.log("FILTRE RENDU OK");
+
+
+    setTimeout(() => {
+
+      this.clear()
+      
+    }, 3000);
+    
+
+  }
+
+  clear(){
+    this.getAssignments();
+  }
+
+  filtreNonRendu(){
+      
+      console.log("FILTRE NON RENDU ?");
+      this.assignments = this.assignments
+      .filter((assignment: { rendu: boolean; }) => assignment.rendu === false)   
+      console.log("FILTRE NON RENDU OK");
+
+    
 }
 
   pagePrecedente() {

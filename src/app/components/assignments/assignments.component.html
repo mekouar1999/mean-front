@@ -20,13 +20,16 @@
 
 <button mat-raised-button color="primary" (click)="premierePage()">Page Premiere</button>
 
-<button mat-flat-button color="accent"  (click)="pagePrecedente()" >Page precedente</button>
+<button mat-flat-button color="primary"  (click)="pagePrecedente()" >Page precedente</button>
 
-<button mat-raised-button color="accent" (click)="pageSuivante()">Page suivante</button>
+<button mat-raised-button color="primary" (click)="pageSuivante()">Page suivante</button>
 
 <button mat-raised-button color="primary" (click)="dernierePage()">Derniere page</button>
 
-<button mat-raised-button color="accent" >Rendu / Non Rendu<mat-checkbox (click)="filtreRendu()" ></mat-checkbox></button>
+<button mat-raised-button color="accent" >Rendu <mat-checkbox (click)="filtreRendu()" ></mat-checkbox></button>
+
+<button mat-raised-button color="accent" >Non Rendu <mat-checkbox (click)="filtreNonRendu()" ></mat-checkbox></button>
+
 
 
 </div>
