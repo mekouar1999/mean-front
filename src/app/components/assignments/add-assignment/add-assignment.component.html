@@ -3,7 +3,8 @@
 <h2> Ajout de devoir</h2>
 <br>
 
-<mat-horizontal-stepper  #stepper [linear]="isLinear">
+<mat-horizontal-stepper  #stepper>
+
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Nom du devoir</ng-template>
